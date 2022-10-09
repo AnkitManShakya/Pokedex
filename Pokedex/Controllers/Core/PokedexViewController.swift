@@ -20,6 +20,15 @@ class PokedexViewController: UIViewController {
         return controller
     }()
     
+    lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(PokemonCollectionViewCell.self, forCellWithReuseIdentifier: PokemonCollectionViewCell.identifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
     lazy var emptyResultsLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,17 +45,16 @@ class PokedexViewController: UIViewController {
         fetchData()
     }
     
-    lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(PokemonCollectionViewCell.self, forCellWithReuseIdentifier: PokemonCollectionViewCell.identifier)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
-    }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+
+    }
+    
+
     
     private func fetchData() {
-        APICaller.shared.apiCall(url: API.pokedex.apiUrl) {[weak self] (result: Pokedex) in
+        APICaller.shared.apiCall(url: API.pokedex.apiUrl) {[weak self] (result: PokedexResponse) in
             guard let self = self else { return }
             self.pokemonEntries = result.pokemonEntries
             DispatchQueue.main.async {
@@ -63,7 +71,6 @@ class PokedexViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        setupNavigationBar()
         view.addSubview(collectionView)
         view.addSubview(emptyResultsLabel)
         NSLayoutConstraint.activate([
@@ -97,6 +104,7 @@ class PokedexViewController: UIViewController {
         
         self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        self.navigationController?.navigationBar.backgroundColor = .clear
         
         navigationItem.searchController = searchController
     }
@@ -137,7 +145,8 @@ extension PokedexViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let controller = PokemonViewController(pokemonName: pokemonEntries[indexPath.item].pokemonSpecies.name.lowercased())
+        navigationController?.pushViewController(controller, animated: true)
     }
     
 }

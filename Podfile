@@ -7,6 +7,7 @@ target 'Pokedex' do
 
   # Pods for Pokedex
   pod 'Kingfisher', '~> 7.0'
+  pod 'TTGTagCollectionView'
 
 
   target 'PokedexTests' do

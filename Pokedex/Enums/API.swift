@@ -10,7 +10,7 @@ import Foundation
 enum API {
     
     case pokedex
-    case pokemon(Int)
+    case pokemon(String)
     case region(Region)
     case habitat(Habitat)
     case gender(Gender)

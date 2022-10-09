@@ -30,8 +30,8 @@
 		BA33C1C428E9F3C900015763 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA33C1C328E9F3C900015763 /* Extensions.swift */; };
 		BA44EEB528E9FA8200BE2E1F /* PokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEB428E9FA8200BE2E1F /* PokemonCollectionViewCell.swift */; };
 		BA44EEB728EC037100BE2E1F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEB628EC037100BE2E1F /* API.swift */; };
-		BA44EEBB28EC096E00BE2E1F /* Pokedex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEBA28EC096E00BE2E1F /* Pokedex.swift */; };
-		BA44EEC228EC79C200BE2E1F /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEC128EC79C200BE2E1F /* Pokemon.swift */; };
+		BA44EEBB28EC096E00BE2E1F /* PokedexResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEBA28EC096E00BE2E1F /* PokedexResponse.swift */; };
+		BA44EEC228EC79C200BE2E1F /* PokemonResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEC128EC79C200BE2E1F /* PokemonResponse.swift */; };
 		BA44EEC428EC8B6600BE2E1F /* PokemonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEC328EC8B6600BE2E1F /* PokemonType.swift */; };
 		BA44EEC628EC8CE700BE2E1F /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEC528EC8CE700BE2E1F /* AppColor.swift */; };
 		BA44EEC928EEA88500BE2E1F /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EEC828EEA88500BE2E1F /* Region.swift */; };
@@ -41,6 +41,8 @@
 		BA44EED128EEB75D00BE2E1F /* HabitatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EED028EEB75D00BE2E1F /* HabitatViewController.swift */; };
 		BA44EED328EEB97400BE2E1F /* GenderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EED228EEB97400BE2E1F /* GenderResponse.swift */; };
 		BA44EED528EEBE0700BE2E1F /* HabitatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA44EED428EEBE0700BE2E1F /* HabitatResponse.swift */; };
+		BA68F39828F1D5FD003E44DE /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68F39728F1D5FD003E44DE /* PokemonViewController.swift */; };
+		BA68F39A28F2F61C003E44DE /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA68F39928F2F61C003E44DE /* Stats.swift */; };
 		CBD24DAF229B0C38378857C0 /* Pods_Pokedex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AAC81875D6955D86737749A /* Pods_Pokedex.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,8 +96,8 @@
 		BA33C1C328E9F3C900015763 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BA44EEB428E9FA8200BE2E1F /* PokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA44EEB628EC037100BE2E1F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		BA44EEBA28EC096E00BE2E1F /* Pokedex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokedex.swift; sourceTree = "<group>"; };
-		BA44EEC128EC79C200BE2E1F /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		BA44EEBA28EC096E00BE2E1F /* PokedexResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexResponse.swift; sourceTree = "<group>"; };
+		BA44EEC128EC79C200BE2E1F /* PokemonResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResponse.swift; sourceTree = "<group>"; };
 		BA44EEC328EC8B6600BE2E1F /* PokemonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonType.swift; sourceTree = "<group>"; };
 		BA44EEC528EC8CE700BE2E1F /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		BA44EEC828EEA88500BE2E1F /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
@@ -105,6 +107,8 @@
 		BA44EED028EEB75D00BE2E1F /* HabitatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatViewController.swift; sourceTree = "<group>"; };
 		BA44EED228EEB97400BE2E1F /* GenderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderResponse.swift; sourceTree = "<group>"; };
 		BA44EED428EEBE0700BE2E1F /* HabitatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitatResponse.swift; sourceTree = "<group>"; };
+		BA68F39728F1D5FD003E44DE /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
+		BA68F39928F2F61C003E44DE /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		C95BD4ED93818A9C872BB39A /* Pods_PokedexTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokedexTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04DB72A8559EA4938FB89BB /* Pods-Pokedex-PokedexUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pokedex-PokedexUITests.release.xcconfig"; path = "Target Support Files/Pods-Pokedex-PokedexUITests/Pods-Pokedex-PokedexUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -223,8 +227,8 @@
 		BA33C1A628E84ED400015763 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BA44EEBA28EC096E00BE2E1F /* Pokedex.swift */,
-				BA44EEC128EC79C200BE2E1F /* Pokemon.swift */,
+				BA44EEBA28EC096E00BE2E1F /* PokedexResponse.swift */,
+				BA44EEC128EC79C200BE2E1F /* PokemonResponse.swift */,
 				BA44EED228EEB97400BE2E1F /* GenderResponse.swift */,
 				BA44EED428EEBE0700BE2E1F /* HabitatResponse.swift */,
 			);
@@ -236,6 +240,7 @@
 			children = (
 				BA33C1B228E8543700015763 /* Core */,
 				BA33C1AB28E850B900015763 /* MainTabBarController.swift */,
+				BA68F39728F1D5FD003E44DE /* PokemonViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 				BA44EEC828EEA88500BE2E1F /* Region.swift */,
 				BA44EECA28EEABC600BE2E1F /* Gender.swift */,
 				BA44EECC28EEABD000BE2E1F /* Habitat.swift */,
+				BA68F39928F2F61C003E44DE /* Stats.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -334,6 +340,8 @@
 			dependencies = (
 			);
 			name = Pokedex;
+			packageProductDependencies = (
+			);
 			productName = Pokedex;
 			productReference = BA33C17028E84E9300015763 /* Pokedex.app */;
 			productType = "com.apple.product-type.application";
@@ -409,6 +417,8 @@
 				Base,
 			);
 			mainGroup = BA33C16728E84E9300015763;
+			packageReferences = (
+			);
 			productRefGroup = BA33C17128E84E9300015763 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -557,9 +567,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA33C17E28E84E9300015763 /* Pokedex.xcdatamodeld in Sources */,
-				BA44EEBB28EC096E00BE2E1F /* Pokedex.swift in Sources */,
+				BA44EEBB28EC096E00BE2E1F /* PokedexResponse.swift in Sources */,
 				BA44EEC928EEA88500BE2E1F /* Region.swift in Sources */,
-				BA44EEC228EC79C200BE2E1F /* Pokemon.swift in Sources */,
+				BA44EEC228EC79C200BE2E1F /* PokemonResponse.swift in Sources */,
 				BA33C1C128E87ADF00015763 /* AppIcon.swift in Sources */,
 				BA44EECB28EEABC700BE2E1F /* Gender.swift in Sources */,
 				BA33C17828E84E9300015763 /* ViewController.swift in Sources */,
@@ -572,8 +582,10 @@
 				BA44EECD28EEABD000BE2E1F /* Habitat.swift in Sources */,
 				BA33C1B728E8738D00015763 /* APICaller.swift in Sources */,
 				BA33C1BA28E873BC00015763 /* Constants.swift in Sources */,
+				BA68F39828F1D5FD003E44DE /* PokemonViewController.swift in Sources */,
 				BA44EEC628EC8CE700BE2E1F /* AppColor.swift in Sources */,
 				BA33C1C428E9F3C900015763 /* Extensions.swift in Sources */,
+				BA68F39A28F2F61C003E44DE /* Stats.swift in Sources */,
 				BA33C1AF28E850F200015763 /* TabBar.swift in Sources */,
 				BA44EEB528E9FA8200BE2E1F /* PokemonCollectionViewCell.swift in Sources */,
 				BA44EECF28EEB75300BE2E1F /* GenderViewController.swift in Sources */,

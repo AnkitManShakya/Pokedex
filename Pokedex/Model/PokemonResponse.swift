@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: - Pokemon
-struct Pokemon: Codable {
+struct PokemonResponse: Codable {
     let height: Int
     let id: Int
     let locationAreaEncounters: String

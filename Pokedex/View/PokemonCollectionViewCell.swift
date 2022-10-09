@@ -49,7 +49,7 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        backgroundColor = .systemMint
+        backgroundColor = .clear
         layer.cornerRadius = 15
         
         contentView.addSubview(name)
@@ -75,18 +75,24 @@ class PokemonCollectionViewCell: UICollectionViewCell {
     func configureCellByPokemonEntry(pokemonEntry: PokemonEntry) {
         name.attributedText = NSAttributedString(string: pokemonEntry.pokemonSpecies.name.capitalizeFirstLetter(), attributes: nameAttributes)
         pokedexNo.text = "# \(pokemonEntry.entryNumber)"
-        fetchPokemon(index: pokemonEntry.entryNumber)
+        fetchPokemon(indicator: "\(pokemonEntry.entryNumber)")
     }
     
     func configureCellByPokemonSpeciesDetail(pokemonSpeciesDetail: PokemonSpeciesDetail) {
         name.attributedText = NSAttributedString(string: pokemonSpeciesDetail.pokemonSpecies.name.capitalizeFirstLetter(), attributes: nameAttributes)
         pokedexNo.isHidden = true
-        fetchPokemonByUrl(url: pokemonSpeciesDetail.pokemonSpecies.url)
+        fetchPokemon(indicator: pokemonSpeciesDetail.pokemonSpecies.name)
     }
     
-    func fetchPokemonByUrl(url: String) {
-        guard let url = URL(string: url) else { return }
-        APICaller.shared.apiCall(url: url) { [weak self] (pokemon: Pokemon ) in
+    func configureCellByName(pokemonSpecy: PokemonSpecy) {
+        name.attributedText = NSAttributedString(string: pokemonSpecy.name.capitalizeFirstLetter(), attributes: nameAttributes)
+        pokedexNo.isHidden = true
+        fetchPokemon(indicator: pokemonSpecy.name)
+    }
+    
+    func fetchPokemon(indicator: String) {
+        guard let url = API.pokemon(indicator).apiUrl else { return }
+        APICaller.shared.apiCall(url: url) { [weak self] (pokemon: PokemonResponse ) in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.pokemonImage.kf.setImage(with: URL(string: pokemon.sprites.frontDefault))
@@ -95,15 +101,6 @@ class PokemonCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func fetchPokemon(index: Int) {
-        guard let url = API.pokemon(index).apiUrl else { return }
-        APICaller.shared.apiCall(url: url) { [weak self] (pokemon: Pokemon ) in
-            guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.pokemonImage.kf.setImage(with: URL(string: pokemon.sprites.frontDefault))
-                self.backgroundColor = PokemonType(rawValue: pokemon.types[0].type.name)?.color
-            }
-        }
-    }
+
     
 }

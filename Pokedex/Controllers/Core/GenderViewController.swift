@@ -6,10 +6,43 @@
 //
 
 import UIKit
+import TTGTags
 
 class GenderViewController: UIViewController {
     
     var pokemonEntries: [PokemonSpeciesDetail] = []
+    var selectedGender: Gender = .female
+    
+    lazy var tagCollectionView: TTGTextTagCollectionView = {
+        let collectionView = TTGTextTagCollectionView()
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.scrollDirection = .horizontal
+        collectionView.backgroundColor = .clear
+        
+        let unselectedStyle = TTGTextTagStyle()
+        unselectedStyle.borderColor = .gray
+        unselectedStyle.backgroundColor = .clear
+        unselectedStyle.extraSpace = CGSize(width: 20, height: 20)
+        unselectedStyle.textAlignment = .center
+        
+        let selectedStyle = TTGTextTagStyle()
+        selectedStyle.borderColor = .gray
+        selectedStyle.backgroundColor = .gray
+        selectedStyle.extraSpace = CGSize(width: 20, height: 20)
+        selectedStyle.textAlignment = .center
+        
+        let tags = Gender.allCases.map({ TTGTextTag(content: TTGTextTagStringContent(
+            text: $0.rawValue.capitalizeFirstLetter(),
+            textFont: UIFont.systemFont(ofSize: 18),
+            textColor: .white),
+                                                    style: unselectedStyle) })
+        
+        tags.map({$0.selectedStyle = selectedStyle})
+        collectionView.add(tags)
+        
+        collectionView.reload()
+        return collectionView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +61,7 @@ class GenderViewController: UIViewController {
     }()
     
     private func fetchData() {
-        APICaller.shared.apiCall(url: API.gender(.female).apiUrl) {[weak self] (result: GenderResponse) in
+        APICaller.shared.apiCall(url: API.gender(selectedGender).apiUrl) {[weak self] (result: GenderResponse) in
             guard let self = self else { return }
             self.pokemonEntries = result.pokemonSpeciesDetails
             DispatchQueue.main.async {
@@ -40,15 +73,21 @@ class GenderViewController: UIViewController {
     private func setupDelegates() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        tagCollectionView.delegate = self
     }
     
     private func setupUI() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         setupNavigationBar()
+        view.addSubview(tagCollectionView)
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tagCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tagCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tagCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            collectionView.topAnchor.constraint(equalTo: tagCollectionView.bottomAnchor, constant: 10),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -75,6 +114,17 @@ class GenderViewController: UIViewController {
         self.navigationController?.navigationBar.standardAppearance = appearance
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
+    }
+    
+}
+
+extension GenderViewController: TTGTextTagCollectionViewDelegate {
+    
+    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTap tag: TTGTextTag!, at index: UInt) {
+        let description = tag.content.getAttributedString().string
+        selectedGender = Gender(rawValue: description.lowercased())  ?? .female
+        fetchData()
+        collectionView.reloadData()
     }
     
 }

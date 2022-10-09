@@ -1,16 +1,20 @@
 PODS:
   - Kingfisher (7.3.2)
+  - TTGTagCollectionView (2.3.0)
 
 DEPENDENCIES:
   - Kingfisher (~> 7.0)
+  - TTGTagCollectionView
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - TTGTagCollectionView
 
 SPEC CHECKSUMS:
   Kingfisher: 0086ad83719761ba9b2cdaf6ef4d5b4878cbae23
+  TTGTagCollectionView: 4104f93281097eae5adbf4444811e32f5e52dc95
 
-PODFILE CHECKSUM: 19e22331cc635de818ef8308b3c1419d0cc6e777
+PODFILE CHECKSUM: a7e5e7682beb64cc0074a6749d778b5b2f45705d
 
 COCOAPODS: 1.11.3

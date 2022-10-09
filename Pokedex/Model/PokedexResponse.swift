@@ -7,7 +7,7 @@
 import Foundation
 
 // MARK: - Pokedex
-struct Pokedex: Codable {
+struct PokedexResponse: Codable {
     
     let pokemonEntries: [PokemonEntry]
     

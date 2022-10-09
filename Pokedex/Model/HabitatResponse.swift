@@ -11,17 +11,17 @@ import Foundation
 struct HabitatResponse: Codable {
     let id: Int
     let name: String
-    let names: [Name]
+    let names: [PokemonName]
     let pokemonSpecies: [PokemonSpecy]
 
     enum CodingKeys: String, CodingKey {
         case id, name, names
-        case pokemonSpecies
+        case pokemonSpecies = "pokemon_species"
     }
 }
 
 // MARK: - Name
-struct Name: Codable {
+struct PokemonName: Codable {
     let language: PokemonSpecy
     let name: String
 }

@@ -12,11 +12,11 @@ struct GenderResponse: Codable {
     let name: String
     let pokemonSpeciesDetails: [PokemonSpeciesDetail]
     let requiredForEvolution: [RequiredForEvolution]
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
-        case pokemonSpeciesDetails
-        case requiredForEvolution
+        case pokemonSpeciesDetails = "pokemon_species_details"
+        case requiredForEvolution = "required_for_evolution"
     }
 }
 
@@ -24,9 +24,9 @@ struct GenderResponse: Codable {
 struct PokemonSpeciesDetail: Codable {
     let pokemonSpecies: RequiredForEvolution
     let rate: Int
-
+    
     enum CodingKeys: String, CodingKey {
-        case pokemonSpecies
+        case pokemonSpecies = "pokemon_species"
         case rate
     }
 }
